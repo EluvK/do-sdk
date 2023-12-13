@@ -13,6 +13,7 @@ async fn test_do() -> anyhow::Result<()> {
     println!("{:?}", r);
 
     client.droplets().delete("123").await?;
+    client.droplets().delete(123).await?;
 
     let create_req = CreateOneDropletReq {
         name: uuid::Uuid::new_v4().to_string(),

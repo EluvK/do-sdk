@@ -1,4 +1,4 @@
-use std::sync::Arc;
+use std::{fmt::Display, sync::Arc};
 
 use async_trait::async_trait;
 use reqwest::StatusCode;
@@ -34,7 +34,7 @@ impl DropletsClient {
     }
 
     // delete one droplet
-    pub async fn delete(&self, dropet_id: &str) -> DoResult<()> {
+    pub async fn delete(&self, dropet_id: impl Display) -> DoResult<()> {
         println!("DropletsClient::delete");
         let resp = self
             .client
